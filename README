@@ -1,0 +1,45 @@
+Overview:
+    This program allows the user and a friend to play Scrabble. Players
+    compete against each other to form higher scoring words, with
+    rarer letters and premium bonus squares helping to create a higher
+    score. The standard rules of Scrabble apply, and the game ends when
+    a player can no longer think of a valid word to play. The App class
+    contains PaneOrganizer, the top level graphic class. PaneOrganizer
+    contains Game, which is the top level graphic class. Game contains
+    Board (which contains the two 2D arrays used in the program) and
+    WordTree, which contains a BST of all valid Scrabble Words. Board
+    contains several instances of Tiles and GameSquares (Tiles inherit
+    from GameSquares). WordTree contains several instances of Node,
+    each of which represent a singular valid Scrabble word.
+
+Design:
+    I used inheritance with Tile and GameSquare. I did this because
+    Tiles are similar to GameSquares visually and in terms of how
+    they are represented in 2D arrays. Essentially, Tiles are
+    GameSquares that can move and have additional properties, such
+    as their letter and score. I used a BST to search for valid words
+    because it reduces the runtime from O(n) to O (log n). This is a
+    significant reduction as there are approximately 200,000 valid
+    Scrabble words. I used two 2D arrays. The gameSquareBoard contains
+    all the GameSquares and is useful for determining if a bonus needs
+    to be implemented. The tileArray is used to store tiles as they
+    are played/added to the board.
+
+Known Bugs:
+    One bug that only shows up in very specific scenarios is when
+    you move a tile to multiple spots before submitting your move.
+    This overpopulates the tileBoard. In order to avoid any
+    unwanted behavior, just make sure to hit undo move any time you
+    decide to change your move from what you originally planned. This
+    will ensure that when you submit, everything is evaluated and
+    scored correctly.
+
+Debugging Collaborators: None
+
+Extra Credit:
+    I added a feature to highlight the square that a dragged tile
+    would be dropped into. I also made it so that the displays for
+    blank tiles and invalid moves are visual breaks in the game, as
+    opposed to just displays on the scoreLabel.
+
+Hours: 50
